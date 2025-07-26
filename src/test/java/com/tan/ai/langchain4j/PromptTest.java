@@ -46,4 +46,14 @@ public class PromptTest {
 
     }
 
+    @Test
+    public void testWithUser(){
+        // 用户信息
+        String userName = "瑞森";
+        int age = 18;
+        String q = separateAssistant.chat3(7, "我是谁？我多大了", userName, age);
+        System.out.println(q);
+
+    }
+
 }
