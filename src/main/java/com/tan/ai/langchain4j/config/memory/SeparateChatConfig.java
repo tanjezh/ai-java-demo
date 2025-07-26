@@ -1,8 +1,10 @@
 package com.tan.ai.langchain4j.config.memory;
 
+import com.tan.ai.langchain4j.chatmemory.MongoChatMemoryStore;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.store.memory.chat.InMemoryChatMemoryStore;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,13 +17,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SeparateChatConfig {
 
+    @Autowired
+    private MongoChatMemoryStore mongoChatMemoryStore;
+
     @Bean
     public ChatMemoryProvider chatMemoryProvider(){
         // 返回一个ChatMemoryProvider对象
         return memoryId -> MessageWindowChatMemory.builder()
                 .id(memoryId)
                 .maxMessages(10)
-                .chatMemoryStore(new InMemoryChatMemoryStore())
+//                .chatMemoryStore(new InMemoryChatMemoryStore())
+                // 添加自定义的 mongo 存储会话
+                .chatMemoryStore(mongoChatMemoryStore)
                 .build();
         // 使用lambda表达式，根据memoryId创建一个MessageWindowChatMemory对象，并设置最大消息数为10
     }

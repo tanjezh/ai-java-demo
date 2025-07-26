@@ -21,6 +21,8 @@ public class ChatMessage {
     @Id
     public ObjectId messageId;
 
+    public int memoryId;
+
     // 存储当天聊天记录列表的json字符串
     public String content;
 
