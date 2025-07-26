@@ -37,4 +37,13 @@ public class PromptTest {
         System.out.println(chat3);
     }
 
+    @Test
+    public void testSep2(){
+        String q1 = separateAssistant.chat2(6, "我是瑞森");
+        System.out.println(q1);
+        String q2 = separateAssistant.chat2(6, "你知道我是谁吗？");
+        System.out.println(q2);
+
+    }
+
 }
