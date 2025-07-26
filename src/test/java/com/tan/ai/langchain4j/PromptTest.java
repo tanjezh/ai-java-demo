@@ -17,7 +17,7 @@ public class PromptTest {
 
     @Test
     public void test(){
-        String chat = separateAssistant.chat(4, "今天几号？");
+        String chat = separateAssistant.chat(5, "今天几号？");
         System.out.println(chat);
     }
 
