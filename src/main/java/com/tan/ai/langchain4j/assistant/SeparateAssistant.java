@@ -14,7 +14,9 @@ import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
  * @author tanjezh
  * @create 2025-05-03 23:10
  */
-@AiService(wiringMode = EXPLICIT, chatModel = "qwenChatModel", chatMemoryProvider = "chatMemoryProvider")
+@AiService(wiringMode = EXPLICIT, chatModel = "qwenChatModel", chatMemoryProvider = "chatMemoryProvider",
+// 调用工具
+tools = "calculatorTools")
 public interface SeparateAssistant {
 
     // 系统提示词注解
