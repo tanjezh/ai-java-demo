@@ -18,7 +18,9 @@ import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
         // 具体模型
         chatModel = "qwenChatModel",
         // 模型提供者类
-        chatMemoryProvider = "xiaozhiMemoryProvider")
+        chatMemoryProvider = "xiaozhiMemoryProvider",
+        // tools配置
+        tools = "appointmentTools")
 public interface XiaozhiAgent {
 
     @SystemMessage(fromResource = "xiaozhi-prompt.txt")
